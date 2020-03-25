@@ -2,17 +2,13 @@ import React from 'react';
 import SideMenu from '../../components/SideMenu';
 import AppBar from '../../components/AppBar';
 
-import routes from '../../routes.js';
-
-const Main = () => {
+const Test = () => {
     return (
         <>
-            <AppBar />
             <SideMenu />
-            <hr/>
-            <div>Content</div>
+            <AppBar />
         </>
     );
 };
 
-export default Main;
+export default Test;
