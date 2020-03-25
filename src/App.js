@@ -2,34 +2,17 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 //components
 
-import Home from './components/home';
-import About from './components/about';
-import Dashboard from './components/dashboard';
+import Main from './layouts/Main';
 
 function App() {
   return (
     <Router>
       <div>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/dashboard">Dashboard</Link>
-          </li>
-        </ul>
-
-        <hr />
-
         {/*
           A <Switch> looks through all its children <Route>
           elements and renders the first one whose path
@@ -38,15 +21,9 @@ function App() {
           of them to render at a time
         */}
         <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
+          <Route exact path="/" render={props => <Main {...props} /> } />
+          <Route exact path="/about" render={props => <Main {...props} /> } />
+          <Route exact path="/dashboard" render={props => <Main {...props} /> } />
         </Switch>
       </div>
     </Router>

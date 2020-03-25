@@ -18,7 +18,7 @@
 	"import module from": {
 		"prefix": "bimf",
 		"body": [
-			"import $1 from './$1;",
+			"import $1 from './$1';",
 			"",
 			"export default $1;"
 			],
@@ -27,7 +27,7 @@
 	//create modules
 
 	"create new react module": {
-		"prefix": "cnrm",
+		"prefix": "bcnrm",
 		"body": [
 			"import React from 'react';",
 			"",
