@@ -3,18 +3,49 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
+  Redirect,
+  Link
 } from "react-router-dom";
 
 //Layouts
-import Main from './layouts/Main';
-import Signin from './layouts/Signin';
 
+//routes
+import routes from './routes';
 
 function App() {
+
+  const getRoutes = (routes) => {
+    return routes.map((prop, key) => {
+      if (prop.layout === "/") {
+        console.log(prop.component)
+        return (
+          <Route
+            exact
+            path={prop.path}
+            component={prop.component}
+            key={key}
+          />
+        );
+      } else {
+        return null;
+      }
+    });
+  };
+
   return (
     <Router>
       <>
+        <ul>
+          <li>
+            <Link to='/'>home</Link>
+          </li>
+          <li>
+            <Link to='/about'>about</Link>
+          </li>
+          <li>
+            <Link to='/dashboard'>dashboard</Link>
+          </li>
+        </ul>
         {/*
           A <Switch> looks through all its children <Route>
           elements and renders the first one whose path
@@ -23,11 +54,8 @@ function App() {
           of them to render at a time
         */}
         <Switch>
-          <Route exact path="/main" render={props => <Main {...props} /> } />
-          <Route exact path="/about" render={props => <Main {...props} /> } />
-          <Route exact path="/dashboard" render={props => <Main {...props} /> } />
-          <Route exact path="/signin" render={props => <Signin /> } />
-          <Redirect from="/" to="/main" />
+          {getRoutes(routes)}
+          <Redirect from="*" to="/"/>
         </Switch>
       </>
     </Router>
