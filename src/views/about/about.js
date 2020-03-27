@@ -1,6 +1,7 @@
 import React from 'react'
 
-const About = () => {
+const About = (props) => {
+    console.log(props.location.pathname);
     return (
         <h2>About</h2>
     );

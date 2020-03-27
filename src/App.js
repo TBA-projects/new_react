@@ -7,7 +7,8 @@ import {
   Link
 } from "react-router-dom";
 
-//Layouts
+//components
+import AppBar from './components/AppBar';
 
 //routes
 import routes from './routes';
@@ -17,7 +18,6 @@ function App() {
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
       if (prop.layout === "/") {
-        console.log(prop.component)
         return (
           <Route
             exact
@@ -35,6 +35,7 @@ function App() {
   return (
     <Router>
       <>
+        <AppBar routes={[routes]} props={{Route}}/>
         <ul>
           <li>
             <Link to='/'>home</Link>

@@ -1,6 +1,7 @@
 import React from 'react'
 
-const Dashboard = () => {
+const Dashboard = (props) => {
+    console.log(props.location.pathname);
     return (
         <h2>Dashboard</h2>
     );
