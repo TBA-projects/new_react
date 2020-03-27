@@ -35,7 +35,7 @@ function App() {
   return (
     <Router>
       <>
-        <AppBar routes={[routes]} props={{Route}}/>
+        <AppBar routes={[routes]}/>
         <ul>
           <li>
             <Link to='/'>home</Link>
