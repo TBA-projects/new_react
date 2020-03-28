@@ -43,7 +43,7 @@ function App() {
         */}
         <Switch>
           {getRoutes(routes)}
-          <Redirect from="*" to="/"/>
+          {/*<Redirect from="*" to="/"/>*/}
         </Switch>
       </>
     </Router>
