@@ -1,6 +1,6 @@
-import Home from "./views/home";
-import About from './views/about';
-import Dashboard from './views/dashboard';
+import Home from "../views/home";
+import About from '../views/about';
+import Dashboard from '../views/dashboard';
 
 var routes = [
   {
@@ -10,17 +10,17 @@ var routes = [
     layout: "/"
   },
   {
-    path: "/about",
-    name: "About",
-    component: About,
-    layout: "/"
-  },
-  {
     path: "/dashboard",
     name: "Dashboard",
     component: Dashboard,
     layout: "/"
   },
+  {
+    path: "/about",
+    name: "About",
+    component: About,
+    layout: "/"
+  }
 ];
 
 export default routes;

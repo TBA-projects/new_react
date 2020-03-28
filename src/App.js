@@ -4,7 +4,6 @@ import {
   Switch,
   Route,
   Redirect,
-  Link
 } from "react-router-dom";
 
 //components
@@ -14,15 +13,14 @@ import AppBar from './components/AppBar';
 import routes from './routes';
 
 function App() {
-
   const getRoutes = (routes) => {
-    return routes.map((prop, key) => {
-      if (prop.layout === "/") {
+    return routes.map((item, key) => {
+      if (item.layout === "/") {
         return (
           <Route
             exact
-            path={prop.path}
-            component={prop.component}
+            path={item.path}
+            component={item.component}
             key={key}
           />
         );
@@ -36,17 +34,6 @@ function App() {
     <Router>
       <>
         <AppBar routes={[routes]}/>
-        <ul>
-          <li>
-            <Link to='/'>home</Link>
-          </li>
-          <li>
-            <Link to='/about'>about</Link>
-          </li>
-          <li>
-            <Link to='/dashboard'>dashboard</Link>
-          </li>
-        </ul>
         {/*
           A <Switch> looks through all its children <Route>
           elements and renders the first one whose path

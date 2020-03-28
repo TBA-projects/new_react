@@ -1,9 +1,15 @@
 import React from 'react'
+import { Container, Typography } from '@material-ui/core';
 
 const Home = (props) => {
-    console.log(props.location.pathname);
     return (
-        <h2>Home</h2>
+        <>
+        <Container maxWidth="xl">
+            <Typography variant="h1" component="h2">
+                Home
+            </Typography>
+        </Container>
+        </>
     );
 };
 
