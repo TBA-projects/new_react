@@ -8,9 +8,6 @@ const About = (props) => {
     return (
         <>
             <Container maxWidth="xl">
-                <Typography variant="h1" component="h2">
-                    About
-                </Typography>
                 <AboutAxios />
             </Container>
         </>

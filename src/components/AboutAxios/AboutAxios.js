@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import axios from 'axios';
+
+//components
+import ButtonAxios from './ButtonAxios';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -21,9 +23,7 @@ const AboutAxios = () => {
             axios.get('https://esi.evetech.net/latest/alliances/?datasource=tranquility')
             .then((response) => {
                 // handle success
-                if (response.data) {
-                    setData(response.data);
-                }
+                setData(response.data);
             })
             .catch((error) => {
                 // handle error
@@ -35,8 +35,7 @@ const AboutAxios = () => {
 
     return (
         <div className={classes.root}>
-            <div>AboutAxios</div>
-            {data.map((item, key) => <Button variant="outlined" color="secondary" key={key}>{item}</Button>)}
+            {data.map((item, key) => <ButtonAxios key={key} props={item}></ButtonAxios>)}
         </div>
     );
 };
