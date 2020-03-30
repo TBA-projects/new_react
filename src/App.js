@@ -6,34 +6,42 @@ import {
   Redirect,
 } from "react-router-dom";
 
-//components
-import AppBar from './components/AppBar';
 
 //routes
 import routes from './routes';
 
+//layouts
+import Fullscreen from './layouts/Fullscreen';
+import Main from './layouts/Main';
+
+//components
+import Home from './views/home';
+import Eveonline from './views/eveonline';
+import Dashboard from './views/dashboard';
+import About from './views/about';
+
 function App() {
-  const getRoutes = (routes) => {
-    return routes.map((item, key) => {
-      if (item.layout === "/") {
-        return (
-          <Route
-            exact
-            path={item.path}
-            component={item.component}
-            key={key}
-          />
-        );
-      } else {
-        return null;
-      }
-    });
-  };
+  //const getRoutes = (routes) => {
+  // return routes.map((item, key) => {
+  //    if (item.layout === "/") {
+  //      return (
+  //        <Route
+  //          exact
+  //          path={item.path}
+  //         component={item.component}
+  //          key={key}
+  //       />
+  //      );
+  //    } else {
+  //      return null;
+  //    }
+  //  });
+  //};
 
   return (
     <Router>
       <>
-        <AppBar routes={[routes]}/>
+        {/*<AppBar routes={[routes]}/>*/}
         {/*
           A <Switch> looks through all its children <Route>
           elements and renders the first one whose path
@@ -42,8 +50,13 @@ function App() {
           of them to render at a time
         */}
         <Switch>
-          {getRoutes(routes)}
-          {/*<Redirect from="*" to="/"/>*/}
+          {/*getRoutes(routes)*/}
+          {<Route exact path='/' render={props => <Main component={Home} {...props} />} />}
+          {<Route exact path='/eveonline' render={props => <Main component={Eveonline} {...props} />} />}
+          {<Route exact path='/dashboard' render={props => <Main component={Dashboard} {...props} />} />}
+          {<Route exact path='/about' render={props => <Main component={About} {...props} />} />}
+          {<Route exact path='/signin' render={props => <Fullscreen {...props} />} />}
+          {<Redirect from="*" to="/"/>}
         </Switch>
       </>
     </Router>

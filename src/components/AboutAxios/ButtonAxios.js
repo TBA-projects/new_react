@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
-import { Avatar } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -43,8 +42,7 @@ const ButtonAxios = (props) => {
 
     return (
         <>
-            <img src={imagePath} className={classes.large}>
-            </img>
+            <img src={imagePath} className={classes.large} alt="" />
         </>
 
     );
