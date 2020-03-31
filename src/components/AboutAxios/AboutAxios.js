@@ -5,13 +5,14 @@ import axios from 'axios';
 //components
 import ButtonAxios from './ButtonAxios';
 import Pagination from './Pagination';
+import { FullscreenExit } from '@material-ui/icons';
 
 const useStyles = makeStyles(theme => ({
     root: {
         '& > *': {
         margin: theme.spacing(1),
-      },
-    },
+        },
+    }
 }));
 
 const AboutAxios = () => {
@@ -20,7 +21,7 @@ const AboutAxios = () => {
     const [data, setData] = useState([]);
     //const [loading, setLoading] = useState(false);
     const [curentPage, setCurentPage] = useState(1);
-    const [itemPerPAge] = useState(150);
+    const [itemPerPAge] = useState(20);
 
     useEffect(() => {  
         const getIds = async () => {
@@ -48,7 +49,7 @@ const AboutAxios = () => {
     //};
 
     return (
-        <div className={classes.root}>
+        <div className={classes.root} style={{ width: '100%', display:"flex", flexWrap:"wrap", flexDirection:"row" }}>
             {/*curentIds.map((item, key) => <li key={key} props={item}>{item}</li>)*/}
             {curentIds.map((item, key) => <ButtonAxios key={key} props={item}></ButtonAxios>)}
             <Pagination idPerPage={itemPerPAge} totalIds={data.length} paginate={paginate} />

@@ -8,7 +8,7 @@ import {
 
 
 //routes
-import routes from './routes';
+//import routes from './routes';
 
 //layouts
 import Fullscreen from './layouts/Fullscreen';
