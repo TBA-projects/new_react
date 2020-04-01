@@ -19,6 +19,8 @@ import Home from './views/home';
 import Eveonline from './views/eveonline';
 import Dashboard from './views/dashboard';
 import About from './views/about';
+import Countres from './views/countres';
+import Signin from './views/signin';
 
 function App() {
   //const getRoutes = (routes) => {
@@ -52,10 +54,11 @@ function App() {
         <Switch>
           {/*getRoutes(routes)*/}
           {<Route exact path='/' render={props => <Main component={Home} {...props} />} />}
+          {<Route exact path='/countres' render={props => <Fullscreen component={Countres} {...props} />} />}
           {<Route exact path='/eveonline' render={props => <Main component={Eveonline} {...props} />} />}
           {<Route exact path='/dashboard' render={props => <Main component={Dashboard} {...props} />} />}
           {<Route exact path='/about' render={props => <Main component={About} {...props} />} />}
-          {<Route exact path='/signin' render={props => <Fullscreen {...props} />} />}
+          {<Route exact path='/signin' render={props => <Fullscreen component={Signin} {...props} />} />}
           {<Redirect from="*" to="/"/>}
         </Switch>
       </>

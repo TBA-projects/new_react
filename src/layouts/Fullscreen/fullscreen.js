@@ -1,9 +1,16 @@
 import React from 'react';
-import Signin from '../Signin'
 
-const Fullscreen = () => {
+const Fullscreen = (props) => {
+    const tagName = props.component;
+
+    const higherOrderComponent = (WrappedComponent) => {
+        return <WrappedComponent {...props}/>;
+    }; 
+
     return (
-        <Signin />
+        <>
+            {higherOrderComponent(tagName)}
+        </>
     );
 };
 
